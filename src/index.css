@@ -18,7 +18,11 @@ main{
 footer{
   background-color: #5b96b3;
   padding: 8px;
+  margin-top: .5rem;
 }
 marquee{
   font-size: 1.5rem;
+}
+.p-style{
+  text-align: justify;
 }
