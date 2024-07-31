@@ -1,0 +1,24 @@
+.navbar-style{
+  background-color: #5b96b3;
+}
+.logo-img-style{
+  height: 50px;
+  width: 50px;
+}
+/* *{
+  font-family: 'Times New Roman', Times, serif;
+} */
+.logo-text-style{
+  margin: -21px 0px 0px 55px;
+}
+
+main{
+  min-height: 82vh;
+}
+footer{
+  background-color: #5b96b3;
+  padding: 8px;
+}
+marquee{
+  font-size: 1.5rem;
+}
