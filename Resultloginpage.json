@@ -1,0 +1,26 @@
+{ 
+    "Users":[
+    {
+        "_id":1,
+        "registerId":"1ST19CS221",
+        "studentName":"Barendra Biswal",
+        "collegeName": "Oxford University",
+        "id":"cbf8"
+    },
+    {
+        "_id":2,
+        "registerId":"1ST19VS241",
+        "studentName":"Visal",
+        "collegeName": "Oxford University",
+        "id":"cbd8"
+    },
+    {
+        "_id":3,
+        "registerId":"1ST19EC231",
+        "studentName":"Pooja",
+        "collegeName": "Oxford University",
+        "id":"cvg8"
+    }
+]
+
+}

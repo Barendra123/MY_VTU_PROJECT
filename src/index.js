@@ -22,7 +22,7 @@ const router= createBrowserRouter(
       <Route path='/circulars/notification' element={<Circularsnotification/>}/>
       <Route path='/certificate/issue' element={<CertificateIssue/>}/>
       <Route path='/result/loginpage' element={<Result/>}/>
-      <Route path='/resultpage' element={<ResultPage/>}/>
+      <Route path='/resultpage/:id' element={<ResultPage/>}/>
     </Route>
   )
 )
