@@ -26,3 +26,11 @@ marquee{
 .p-style{
   text-align: justify;
 }
+td{
+  padding: 10px;
+  text-align: center;
+  background-color: aliceblue;
+}
+th{
+  background-color: #5b96b3;
+}

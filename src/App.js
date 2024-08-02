@@ -1,7 +1,9 @@
 import Header from "./Component/Header"
 import Footer from "./Component/footer"
 import { Container } from "react-bootstrap";
-import HomeScreen from "./Screens/HomeScreen";
+import { Outlet } from "react-router-dom";
+
+
 
 function App() {
   return (
@@ -9,7 +11,7 @@ function App() {
     <Header />
     <Container>
       <main>
-        <HomeScreen/>
+        <Outlet/>
       </main>
       </Container>
     <Footer />
@@ -17,5 +19,5 @@ function App() {
   );
 }
 
-export default App;
+export default App;
 
