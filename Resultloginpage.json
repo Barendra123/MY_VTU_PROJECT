@@ -4,6 +4,7 @@
         "_id":1,
         "registerId":"1ST19CS221",
         "studentName":"Barendra Biswal",
+        "FatherName":"Ramesh Biswal",
         "collegeName": "Oxford University",
         "id":"cbf8"
     },
@@ -11,6 +12,7 @@
         "_id":2,
         "registerId":"1ST19VS241",
         "studentName":"Visal",
+        "FatherName":"Rajesh",
         "collegeName": "Oxford University",
         "id":"cbd8"
     },
@@ -18,6 +20,7 @@
         "_id":3,
         "registerId":"1ST19EC231",
         "studentName":"Pooja",
+        "FatherName":"madhu",
         "collegeName": "Oxford University",
         "id":"cvg8"
     }

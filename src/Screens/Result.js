@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Link,useNavigate,useParams } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import { Row,Col,Form, Button } from "react-bootstrap";
 import axios from 'axios'
 const Result=()=>{
@@ -8,26 +8,23 @@ const Result=()=>{
     const[error,setError]=useState("")
 
     const navigate =useNavigate()
-    const {id} =useParams()
 
     const sumbitHandler =(e)=>{
         e.preventDefault()
         if(registerInput === ''){
             setError("Please enter register ID")
         }else{
-            axios.get('http://localhost:3012/Users')
+            axios.get('http://localhost:3011/studentInfo')        
             .then((Response)=>{
                 console.log("res",Response.data)
-                Response.data.map((data,index)=>{
+                Response.data.map((data,index) =>{
                     if (data.registerId === registerInput){
-                        navigate(`/resultpage/${id}`)
+                        navigate(`/resultpage/${registerInput}`)
                     }else {setError("Invaild register ID")}
-                })
-             
+                })    
             })
         }
     }
-
     return(
         <>
         <Link to='/' className="btn btn-dark" style={{marginTop:'1rem'}}>Go Back</Link>
@@ -36,8 +33,8 @@ const Result=()=>{
             <Col>
                 <h3>Check Your Result here...</h3>
             </Col>
-        </Row>
-        <br/>
+        </Row><br/>
+
         <Row>
             <Col style={{marginLeft:'25rem'}}>
             <Form onSubmit={(e)=>sumbitHandler(e)}>
@@ -46,10 +43,7 @@ const Result=()=>{
                 style={{width:'70%'}} value={registerInput} onChange={(e)=>setRegisterInput(e.target.value)}/>
                 {error ? <div style={{color:'red'}}>{error}</div>:''}
                 <Button type="sumbit" style={{marginTop:"1rem"}}>Sumbit</Button>
-                </Form>
-
-
-                
+            </Form>   
             </Col>
         </Row>
         </>

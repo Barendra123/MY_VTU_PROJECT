@@ -1,7 +1,29 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Table } from 'react-bootstrap'
-const TableData=()=>{
+import axios from 'axios'
+const TableData=({studentId})=>{
 
+    const[result,setResult]=useState([])
+    useEffect(()=>{
+        axios.get('http://localhost:3011/studentInfo')
+        .then((Response)=> {
+            console.log(Response.data)
+            let temp =[]
+            temp = Response.data.filter((d) => d.registerId=== studentId)
+            setResult(temp)
+        })
+        .catch((error)=> console.log(error))
+        
+    },[studentId])
+    console.log("State2",result)
+    const getTotalMarks =(value)=>{
+        console.log(value)
+        let sum=0
+        result.map((d)=>{
+            sum += parseInt(d[value])
+        })
+        return sum
+    }
     return(
         <>
         <Table className='my-5' responsive bordered>
@@ -21,49 +43,26 @@ const TableData=()=>{
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>CSE001</td>
-                    <td>JAVA</td>
-                    <td>100</td>
-                    <td>35</td>
-                    <td>65</td>
-                    <td>PASS</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>CSE001</td>
-                    <td>JAVA</td>
-                    <td>100</td>
-                    <td>35</td>
-                    <td>65</td>
-                    <td>PASS</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>CSE001</td>
-                    <td>JAVA</td>
-                    <td>100</td>
-                    <td>35</td>
-                    <td>65</td>
-                    <td>PASS</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>CSE001</td>
-                    <td>JAVA</td>
-                    <td>100</td>
-                    <td>35</td>
-                    <td>65</td>
-                    <td>PASS</td>
-                </tr>
+                    {
+                        result.map((data,index)=>(
+                             <tr key={index}>
+                                <td>{index+1}</td>
+                                <td>{data.code}</td>
+                                <td>{data.subject}</td>
+                                <td>{data.max_marks}</td>
+                                <td>{data.min_marks}</td>
+                                <td>{data.obtained_marks}</td>
+                                <td>{data.result}</td>
+                             </tr>
+                        ))
+                    }
             </tbody>
             <thead>
                 <tr>
                     <th colSpan={3} style={{textAlign:'center'}}>Grand Total</th>
-                    <td>400</td>
-                    <td>140</td>
-                    <td>260</td>
+                    <td>{getTotalMarks('max_marks')}</td>
+                    <td>{getTotalMarks('min_marks')}</td>
+                    <td>{getTotalMarks('obtained_marks')}</td>
                     <td>Grade c+</td>
                 </tr>
 
